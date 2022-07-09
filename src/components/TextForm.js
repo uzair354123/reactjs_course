@@ -80,7 +80,15 @@ export default function TextForm(props) {
           {value.split(" ").length} words, {value.length} characters
         </p>
         <p>
-          {value.length > 0 ? value.split(" ").length * 0.008 + " minutes" : ""}{" "}
+          {
+            value
+              .trim()
+              .split(" ")
+              .filter(function (element) {
+                return element !== "";
+              }).length
+          }{" "}
+          words and {value.length} characters
         </p>
         <h2>Preview</h2>
         <p>{value.length > 0 ? value : "Enter Something To Preview"}</p>

@@ -44,6 +44,24 @@ export default function Navbar(props) {
               Search
             </button>
           </form> */}
+          <div className="themeColor">
+            <span
+              className="mx-2 red"
+              onClick={() => props.handleThemeColor("red")}
+            ></span>
+            <span
+              className="mx-2 blue"
+              onClick={() => props.handleThemeColor("blue")}
+            ></span>
+            <span
+              className="mx-2 orange"
+              onClick={() => props.handleThemeColor("orange")}
+            ></span>
+            <span
+              className="mx-2 black"
+              onClick={() => props.handleThemeColor("black")}
+            ></span>
+          </div>
           <div className="form-check form-switch">
             <input
               className="form-check-input"

@@ -7,8 +7,12 @@ import Alert from "./components/Alert";
 
 function App() {
   const [mode, setMode] = useState("light"); // whether dark mode is enabled or not
+  const [themeColor, setThemeColor] = useState({ color: "black" });
   const [modeText, setModeText] = useState("Dark");
   const [alert, setAlert] = useState(null);
+  const handleThemeColor = (ThemeColorToSet) => {
+    setThemeColor({ color: ThemeColorToSet });
+  };
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
@@ -42,13 +46,15 @@ function App() {
         mode={mode}
         toggleMode={toggleMode}
         modeText={modeText}
+        handleThemeColor={handleThemeColor}
       />
       <Alert alert={alert} />
-      <div className="container mt-4">
+      <div className="container mt-4" style={themeColor}>
         <TextForm
           heading="Enter The text to analyze Below"
           mode={mode}
           showAlert={showAlert}
+          themeColor={themeColor}
         />
         {/* <About /> */}
       </div>

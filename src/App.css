@@ -42,3 +42,26 @@
 .br-4{
   border-radius: 4px;
 }
+.themeColor span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+.themeColor .red {
+  background: #ec1839;
+  cursor: pointer;
+}
+.themeColor .blue {
+  background: blue;
+  cursor: pointer;
+}
+.themeColor .orange {
+  background: orange;
+  cursor: pointer;
+}
+.themeColor .black {
+  background: black;
+  cursor: pointer;
+}
