@@ -9,26 +9,32 @@ export default function TextForm(props) {
   const handleFontClick = () => {
     if (myStyle.fontFamily === "Sans-serif") {
       setStyle({ fontFamily: "Poppins" });
+      props.showAlert("Converted To Poppins", "success");
       document.querySelector("textarea").style.fontFamily = "Poppins";
       setBtnText("Sans Serif");
     } else {
       setStyle({ fontFamily: "Sans-serif" });
+      props.showAlert("Converted To Sans-Serif", "success");
       document.querySelector("textarea").style.fontFamily = "Sans-serif";
       setBtnText("Poppins");
     }
   };
   const handleUpClick = () => {
     let newValue = value.toUpperCase();
+    props.showAlert("Converted To Uppercase", "success");
     setValue(newValue);
   };
   const handleLowClick = () => {
     let newValue = value.toLowerCase();
+    props.showAlert("Converted To Lowercase", "success");
     setValue(newValue);
   };
   const handleClearClick = () => {
+    props.showAlert("Textarea Cleared", "success");
     setValue("");
   };
   const handleCopyClick = () => {
+    props.showAlert("Copied To Clipboard", "success");
     navigator.clipboard.writeText(value);
   };
   const handleChange = (e) => {
