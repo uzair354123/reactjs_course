@@ -4,6 +4,7 @@ import TextForm from "./components/TextForm";
 import About from "./components/About";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light"); // whether dark mode is enabled or not
@@ -29,35 +30,50 @@ function App() {
       showAlert("Dark Mode Has Been Enabled", "success");
       document.body.style.backgroundColor = "black";
       document.body.style.color = "white";
+      document.title = "TextUtils - Dark Mode";
+      if (themeColor.color === "black") {
+        handleThemeColor("white");
+      }
     } else {
       setMode("light");
       setModeText("Dark");
       showAlert("Light Mode Has Been Enabled", "success");
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
+      document.title = "TextUtils - Light Mode";
     }
   };
   return (
     <>
       {/* <Navbar /> */}
-      <Navbar
-        title="Textutils"
-        aboutText="About text utils"
-        mode={mode}
-        toggleMode={toggleMode}
-        modeText={modeText}
-        handleThemeColor={handleThemeColor}
-      />
-      <Alert alert={alert} />
-      <div className="container mt-4" style={themeColor}>
-        <TextForm
-          heading="Enter The text to analyze Below"
+      <Router>
+        <Navbar
+          title="Textutils"
+          aboutText="About text utils"
           mode={mode}
-          showAlert={showAlert}
-          themeColor={themeColor}
+          toggleMode={toggleMode}
+          modeText={modeText}
+          handleThemeColor={handleThemeColor}
         />
-        {/* <About /> */}
-      </div>
+        <Alert alert={alert} />
+        <div className="container mt-4" style={themeColor}>
+          <Routes>
+            <Route exact path="/about" element={<About />}></Route>
+            <Route
+              exact
+              path="/"
+              element={
+                <TextForm
+                  heading="Enter The text to analyze Below"
+                  mode={mode}
+                  showAlert={showAlert}
+                  themeColor={themeColor}
+                />
+              }
+            ></Route>
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
