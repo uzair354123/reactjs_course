@@ -2,17 +2,18 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [btnText, setBtnText] = useState("Poppins");
-  const [myFont, setFont] = useState({
+
+  const [myStyle, setStyle] = useState({
     fontFamily: "Sans-serif",
   });
   const handleFontClick = () => {
-    console.log("hello");
-
-    if (myFont.fontFamily === "Sans-serif") {
-      setFont({ fontFamily: "Poppins" });
+    if (myStyle.fontFamily === "Sans-serif") {
+      setStyle({ fontFamily: "Poppins" });
+      document.querySelector("textarea").style.fontFamily = "Poppins";
       setBtnText("Sans Serif");
     } else {
-      setFont({ fontFamily: "Sans-serif" });
+      setStyle({ fontFamily: "Sans-serif" });
+      document.querySelector("textarea").style.fontFamily = "Sans-serif";
       setBtnText("Poppins");
     }
   };
@@ -45,7 +46,10 @@ export default function TextForm(props) {
             onChange={handleChange}
             id="myText"
             rows={7}
-            style={myFont}
+            style={{
+              backgroundColor: `${props.mode === "light" ? "white" : "black"}`,
+              color: `${props.mode === "light" ? "black" : "white"}`,
+            }}
           ></textarea>
         </div>
         <button className="btn btn-primary" onClick={handleUpClick}>
@@ -69,9 +73,11 @@ export default function TextForm(props) {
         <p>
           {value.split(" ").length} words, {value.length} characters
         </p>
-        {/* <p>{value.split(" ").length * 0.008} minutes</p> */}
+        <p>
+          {value.length > 0 ? value.split(" ").length * 0.008 + " minutes" : ""}{" "}
+        </p>
         <h2>Preview</h2>
-        <p>{value}</p>
+        <p>{value.length > 0 ? value : "Enter Something To Preview"}</p>
       </div>
     </>
   );

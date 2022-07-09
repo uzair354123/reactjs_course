@@ -5,6 +5,7 @@ export default function About() {
     color: "white",
     backgroundColor: "black",
   });
+
   const [btnColor, setBtnColor] = useState({
     backgroundColor: "white",
     color: "black",
@@ -34,7 +35,7 @@ export default function About() {
     }
   };
   return (
-    <div className="container px-2 pt-4 py-4" style={myStyle}>
+    <div className="container br-4 px-2 pt-4 py-4" style={myStyle}>
       <h2>About Us</h2>
       <div className="accordion mt-4" id="accordionExample">
         <div className="accordion-item">
