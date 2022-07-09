@@ -4,7 +4,7 @@ import TextForm from "./components/TextForm";
 import About from "./components/About";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light"); // whether dark mode is enabled or not
@@ -58,10 +58,10 @@ function App() {
         <Alert alert={alert} />
         <div className="container mt-4" style={themeColor}>
           <Routes>
-            <Route exact path="/about" element={<About />}></Route>
+            <Route path="/about" element={<About />}></Route>
+
             <Route
-              exact
-              path="/"
+              path="/reactjs_course"
               element={
                 <TextForm
                   heading="Enter The text to analyze Below"
