@@ -64,7 +64,7 @@ function App() {
             ></Route>
 
             <Route
-              path="/"
+              path="/reactjs_course"
               element={
                 <TextForm
                   heading="Enter The text to analyze Below"

@@ -58,19 +58,39 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>
+        <button
+          className="btn btn-primary"
+          onClick={handleUpClick}
+          disabled={value.length === 0}
+        >
           Convert To Uppercase
         </button>
-        <button className="btn btn-primary mx-3 my-1" onClick={handleLowClick}>
+        <button
+          className="btn btn-primary mx-3 my-1"
+          onClick={handleLowClick}
+          disabled={value.length === 0}
+        >
           Convert To Lowercase
         </button>
-        <button className="btn btn-primary my-1" onClick={handleClearClick}>
+        <button
+          className="btn btn-primary my-1"
+          onClick={handleClearClick}
+          disabled={value.length === 0}
+        >
           Clear Text
         </button>
-        <button className="btn btn-primary mx-2 my-1" onClick={handleCopyClick}>
+        <button
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleCopyClick}
+          disabled={value.length === 0}
+        >
           Copy To Clipboard
         </button>
-        <button className="btn btn-primary mx-2 my-1" onClick={handleFontClick}>
+        <button
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleFontClick}
+          disabled={value.length === 0}
+        >
           {btnText}
         </button>
       </div>
