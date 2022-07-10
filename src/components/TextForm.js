@@ -43,7 +43,7 @@ export default function TextForm(props) {
   const [value, setValue] = useState("");
   return (
     <>
-      <div className="container">
+      <div className="container" style={props.themeColor}>
         <div className="mb-3">
           <h1>{props.heading}</h1>
           <textarea
@@ -61,24 +61,22 @@ export default function TextForm(props) {
         <button className="btn btn-primary" onClick={handleUpClick}>
           Convert To Uppercase
         </button>
-        <button className="btn btn-primary mx-3" onClick={handleLowClick}>
+        <button className="btn btn-primary mx-3 my-1" onClick={handleLowClick}>
           Convert To Lowercase
         </button>
-        <button className="btn btn-primary" onClick={handleClearClick}>
+        <button className="btn btn-primary my-1" onClick={handleClearClick}>
           Clear Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopyClick}>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleCopyClick}>
           Copy To Clipboard
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleFontClick}>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleFontClick}>
           {btnText}
         </button>
       </div>
       <div className="container mt-4">
         <h2>Your Text Summary</h2>
-        <p>
-          {value.split(" ").length} words, {value.length} characters
-        </p>
+
         <p>
           {
             value
@@ -90,6 +88,7 @@ export default function TextForm(props) {
           }{" "}
           words and {value.length} characters
         </p>
+        <p> {0.008 * value.split("").length} Minutes Read</p>
         <h2>Preview</h2>
         <p>{value.length > 0 ? value : "Enter Something To Preview"}</p>
       </div>

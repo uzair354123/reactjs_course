@@ -58,10 +58,13 @@ function App() {
         <Alert alert={alert} />
         <div className="container mt-4" style={themeColor}>
           <Routes>
-            <Route path="/about" element={<About />}></Route>
+            <Route
+              path="/about"
+              element={<About themeColor={themeColor} mode={mode} />}
+            ></Route>
 
             <Route
-              path="/reactjs_course"
+              path="/"
               element={
                 <TextForm
                   heading="Enter The text to analyze Below"
