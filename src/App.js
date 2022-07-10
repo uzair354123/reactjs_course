@@ -45,7 +45,6 @@ function App() {
   };
   return (
     <>
-      {/* <Navbar /> */}
       <Router>
         <Navbar
           title="Textutils"

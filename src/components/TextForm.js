@@ -101,7 +101,7 @@ export default function TextForm(props) {
           {
             value
               .trim()
-              .split(" ")
+              .split(/\s+/)
               .filter(function (element) {
                 return element !== "";
               }).length
